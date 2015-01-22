@@ -1,6 +1,6 @@
 # React Tutorial + Javi's update
 
-This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html) plus a few updates I've added, turnint it into a simple clone of Google Keep. 
+This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html) plus a few updates I've added, turning it into a basic clone of Google Keep. 
 
 ## To use
 
