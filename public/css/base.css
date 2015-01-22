@@ -1,0 +1,122 @@
+body {
+    background-color: #E8E8E8;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+a {
+    color: #4183c4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+    font-size: 12px;
+    margin: 0 2px;
+    padding: 5px;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    margin: 0 0 15px;
+    padding: 0;
+}
+
+h1 {
+    border-bottom: 1px solid #ddd;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0 0 15px;
+    padding: 0;
+}
+
+h2 {
+    border-bottom: 1px solid #eee;
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+p, ul {
+    margin: 15px 0;
+}
+
+ul {
+    padding-left: 18px;
+}
+
+textarea {
+    border: none;
+    box-shadow: 0 1px 1px #CCC;
+    box-sizing: border-box;
+    font-size: 1em;
+    height: 80px;
+    max-width: 400px;
+    padding: 10px;
+    resize: none;
+    transition: height 0.1s linear;
+    width: 100%;
+}
+
+textarea:focus {
+    height: 120px;
+}
+
+input[type="submit"] {
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    background-color: #CCC;
+}
+
+.note {
+    background-color: #FFDA00;
+    box-shadow: 0 1px 1px #CCC;
+    margin-bottom: 20px;
+}
+
+.note__content {
+    padding: 10px 20px;
+}
+
+.note__controls {
+    background-color: rgba(0, 0, 0, 0.07);
+    padding: 5px 10px;
+}
+
+.note__controls > a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.noteList {
+    margin: 0 auto;
+}
+
+.noteForm {
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+}
