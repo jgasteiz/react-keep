@@ -187,7 +187,7 @@
 
     React.render(
         <NoteBox
-            pollUrl="notes.json"
+            pollUrl="notes"
             createUrl="create"
             deleteUrl="delete"
             updateUrl="update"
