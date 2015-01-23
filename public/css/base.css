@@ -63,8 +63,9 @@ ul {
 }
 
 textarea {
+    background: none;
     border: none;
-    box-shadow: 0 1px 1px #CCC;
+    box-shadow: 0 1px 10px #CCC;
     box-sizing: border-box;
     font-size: 1em;
     height: 80px;
@@ -80,21 +81,31 @@ textarea:focus {
 }
 
 input[type="submit"] {
-    background: none;
+    background-color: #FFF;
     border: none;
-    padding: 5px 10px;
     border-radius: 2px;
+    box-shadow: 0 1px 4px #888;
+    padding: 5px 10px;
 }
 
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-    background-color: #CCC;
+    box-shadow: 0 1px 1px #AAA;
+}
+
+input[type="submit"]:active {
+    box-shadow: 0 1px 0 #AAA;
 }
 
 .note {
     background-color: #FFDA00;
     box-shadow: 0 1px 1px #CCC;
     margin-bottom: 20px;
+}
+
+.note textarea {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: none;
 }
 
 .note__content {
