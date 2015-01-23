@@ -6,12 +6,12 @@
     var Note = React.createClass({
         deleteNote: function(e) {
             e.preventDefault();
-            this.props.deleteNote(this.props.index);
+            this.props.deleteNote(this.props.id);
         },
         updateNote: function(note) {
             this.refs.noteForm.getDOMNode().style.display = "none";
             this.refs.noteContent.getDOMNode().style.display = "block";
-            this.props.updateNote({index: this.props.index, text: note.text});
+            this.props.updateNote({id: note.id, text: note.text});
         },
         showNoteEditor: function(e) {
             e.preventDefault();
@@ -33,6 +33,7 @@
                         ref="noteForm"
                         hide="true"
                         text={this.props.children}
+                        id={this.props.id}
                         onNoteSubmit={this.updateNote}
                     />
                     <div className="note__controls">
@@ -50,12 +51,12 @@
                 updateNote = this.props.updateNote,
                 noteNodes;
 
-            noteNodes = this.props.data.map(function (note, index) {
+            noteNodes = this.props.data.map(function (note) {
                 return (
                     <Note
                         deleteNote={deleteNote}
                         updateNote={updateNote}
-                        index={index}>
+                        id={note.id}>
                         {note.text}
                     </Note>
                 );
@@ -73,12 +74,13 @@
         handleSubmit: function(e) {
             e.preventDefault();
             var text = this.refs.text.getDOMNode().value.trim();
+
             if (!text) {
                 alert('Enter some text');
                 return false;
             }
 
-            this.props.onNoteSubmit({text: text});
+            this.props.onNoteSubmit({id: this.props.id, text: text});
 
             this.refs.text.getDOMNode().value = '';
             return false;
@@ -143,26 +145,18 @@
 
             this.handleAjaxRequest('POST', this.props.createUrl, data, this.renderData);
         },
-        deleteNote: function(index) {
-            var notes = this.state.data;
-            notes.splice(index, 1);
-            this.setState({data: notes}, null);
-
+        deleteNote: function(id) {
             var data = new FormData();
-            data.append('index', index);
+            data.append('id', id);
 
-            this.handleAjaxRequest('POST', this.props.deleteUrl, data, this.renderData);
+            this.handleAjaxRequest('DELETE', this.props.deleteUrl, data, this.renderData);
         },
         updateNote: function(note) {
-            var notes = this.state.data;
-            notes[note.index] = {text: note.text};
-            this.setState({data: notes}, null);
-
             var data = new FormData();
-            data.append('index', note.index);
+            data.append('id', note.id);
             data.append('text', note.text);
 
-            this.handleAjaxRequest('POST', this.props.updateUrl, data, this.renderData);
+            this.handleAjaxRequest('PUT', this.props.updateUrl, data, this.renderData);
         },
         getInitialState: function() {
             return {data: []};

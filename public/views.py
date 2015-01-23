@@ -25,14 +25,19 @@ def create():
 
 @app.route('/update', methods=['PUT'])
 def update():
-    import ipdb; ipdb.set_trace()
-    return 'updated!'
+    note = Note.query.filter_by(id=request.form['id']).first()
+    note.text = request.form['text']
+    db.session.add(note)
+    db.session.commit()
+    return json.dumps(_get_notes())
 
 
 @app.route('/delete', methods=['DELETE'])
 def delete():
-    import ipdb; ipdb.set_trace()
-    return 'deleted!'
+    note = Note.query.filter_by(id=request.form['id']).first()
+    db.session.delete(note)
+    db.session.commit()
+    return json.dumps(_get_notes())
 
 
 def _get_notes():
