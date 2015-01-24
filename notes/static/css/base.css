@@ -131,3 +131,18 @@ input[type="submit"]:active {
     padding: 10px;
     text-align: center;
 }
+
+.add-new-note {
+    background: #F00;
+    border: none;
+    border-radius: 50%;
+    bottom: 20px;
+    color: #FFF;
+    font-size: 32px;
+    height: 64px;
+    padding-bottom: 6px;
+    padding-top: 0;
+    position: fixed;
+    right: 20px;
+    width: 64px;
+}

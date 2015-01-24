@@ -6,7 +6,9 @@
     var Note = React.createClass({
         deleteNote: function(e) {
             e.preventDefault();
-            this.props.deleteNote(this.props.id);
+            if (confirm('Are you sure?')) {
+                this.props.deleteNote(this.props.id);
+            }
         },
         updateNote: function(note) {
             this.refs.noteForm.getDOMNode().style.display = "none";
@@ -111,6 +113,23 @@
         }
     });
 
+    var AddNote = React.createClass({
+        getInitialState: function() {
+            return {showResults: false};
+        },
+        onClick: function() {
+            this.setState({showResults: true}, null);
+        },
+        render: function() {
+            return (
+                <div>
+                    <input type="submit" value="Add note" onClick={this.onClick} />
+                    { this.state.showResults ? <Results /> : null }
+                </div>
+            );
+        }
+    });
+
     var NoteBox = React.createClass({
         renderData: function(responseText) {
             var data = JSON.parse(responseText);
@@ -158,6 +177,9 @@
 
             this.handleAjaxRequest('PUT', this.props.updateUrl, data, this.renderData);
         },
+        toggleFormVisibility: function() {
+            this.setState({showForm: !this.state.showForm}, null);
+        },
         getInitialState: function() {
             return {data: []};
         },
@@ -168,7 +190,13 @@
         render: function() {
             return (
                 <div className="noteBox">
-                    <NoteForm onNoteSubmit={this.handleNoteSubmit} />
+                    <button
+                        type="button"
+                        className="add-new-note"
+                        onClick={this.toggleFormVisibility}>
+                        +
+                    </button>
+                    { this.state.showForm ? <NoteForm onNoteSubmit={this.handleNoteSubmit} /> : null }
                     <NoteList
                         data={this.state.data}
                         deleteNote={this.deleteNote}
