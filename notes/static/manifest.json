@@ -1,0 +1,13 @@
+{
+  "name": "Notes",
+  "short_name": "Notes",
+  "icons": [{
+        "src": "static/img/icon_lo.ico",
+        "sizes": "16x16"
+      }, {
+        "src": "static/img/icon_hi.png",
+        "sizes": "256x256"
+      }],
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
